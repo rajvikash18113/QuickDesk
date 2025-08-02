@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (currentView === 'ticket-detail') { ticketDetailView.classList.remove('hidden'); renderTicketDetail(); }
         else if (currentView === 'admin') { adminView.classList.remove('hidden'); adminPanelButton.classList.add('active'); renderAdminPanel(); }
     }
-    // --- DASHBOARD ---
+    // ---------------------------------DASHBOARD -------------------------------------//
     function renderDashboard() {
         const searchTerm = searchInput.value.toLowerCase();
         const status = statusFilter.value;
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- TICKET DETAIL ---
+    // --------------------------------------- TICKET DETAIL ----------------------------------------//
     function renderTicketDetail() {
         const ticket = tickets.find(t => t.id === currentTicketId);
         if (!ticket) { navigateTo('dashboard'); return; }

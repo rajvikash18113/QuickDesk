@@ -8,7 +8,7 @@ const path = require('path');
 const app = express();
 
 // 3. Define the port number
-const PORT = 3001;
+const PORT = 5000;
 
 // 4. Tell our server to make the 'public' folder accessible
 app.use(express.static(path.join(__dirname, 'public')));
