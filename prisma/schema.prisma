@@ -1,0 +1,75 @@
+// This is your Prisma schema file.
+
+// 1. Tells Prisma how to connect to the database (it will use the URL from your .env file)
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 2. Tells Prisma how to generate its code
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 3. Defines the User table
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String
+  password  String   // We will improve this later to be more secure
+  role      String   @default("EndUser")
+  tickets   Ticket[] // A user can have many tickets
+  comments  Comment[] // A user can write many comments
+}
+
+// 4. Defines the Category table
+model Category {
+  id      Int      @id @default(autoincrement())
+  name    String   @unique
+  tickets Ticket[] // A category can have many tickets
+}
+
+// 5. Defines the Ticket table
+model Ticket {
+  id          Int       @id @default(autoincrement())
+  subject     String
+  description String
+  status      String    @default("Open")
+  votes       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  
+  // --- Relationships ---
+  author      User      @relation(fields: [authorId], references: [id])
+  authorId    Int
+  
+  category    Category  @relation(fields: [categoryId], references: [id])
+  categoryId  Int
+  
+  comments    Comment[] // A ticket can have many comments
+}
+
+// 6. Defines the Comment table
+model Comment {
+  id        Int      @id @default(autoincrement())
+  text      String
+  createdAt DateTime @default(now())
+  
+  // --- Relationships ---
+  ticket    Ticket   @relation(fields: [ticketId], references: [id])
+  ticketId  Int
+  
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
+
+// 7. Defines the Notification table
+model Notification {
+  id             Int      @id @default(autoincrement())
+  message        String
+  isRead         Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  
+  // --- Relationships ---
+  recipientEmail String // The email of the user who should receive it
+  ticketId       Int    // The ticket this notification is about
+}
