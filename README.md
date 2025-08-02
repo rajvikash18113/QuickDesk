@@ -6,6 +6,14 @@ QuickDesk is a simple, easy-to-use help desk solution where users can raise supp
 
 ---
 
+## 🎥 Video Demo
+
+[![QuickDesk Video Demo](https://img.youtube.com/vi/o_837O-327c/0.jpg)](http://www.youtube.com/watch?v=PgceWdpxKU8)
+
+*(Click the image above to watch a full video demonstration of the project: [QuickDesk - (ODOO) hackathon Project](http://www.youtube.com/watch?v=PgceWdpxKU8))*
+
+---
+
 ## ✨ Key Features
 
 * **Role-Based Access Control:**
@@ -76,10 +84,10 @@ You need to have [Node.js](https://nodejs.org/) installed on your machine.
 
 You can log in with these default accounts to test the different roles:
 
-| Role          | Email              | Password |
-| :------------ | :----------------- | :------- |
-| **Admin** | `admin@app.com`    | `admin`  |
-| **Agent 1** | `agent1@gmail.com` | `agent`  |
-| **Agent 2** | `agent2@gmail.com` | `agent`  |
-| **User 1** | `user1@gmail.com`  | `user`   |
-| **User 2** | `user2@gmail.com`  | `user`   |
+| Role | Email | Password |
+| :--- | :--- | :--- |
+| **Admin** | `admin@app.com` | `admin` |
+| **Agent 1** | `agent1@gmail.com` | `agent` |
+| **Agent 2** | `agent2@gmail.com` | `agent` |
+| **User 1** | `user1@gmail.com` | `user` |
+| **User 2** | `user2@gmail.com` | `user` |
