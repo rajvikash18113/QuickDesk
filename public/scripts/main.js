@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             categories.push({ id: 1, name: 'Technical' }, { id: 2, name: 'Billing' });
             needsSave = true;
         }
-        
+
         if (needsSave) {
             saveDataToLocalStorage();
         }
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('login-form').addEventListener('submit', handleLogin);
         document.getElementById('register-form').addEventListener('submit', handleRegister);
     }
-    
+
     function toggleForms(showLogin = false) {
         document.getElementById('login-card').classList.toggle('hidden', !showLogin);
         document.getElementById('register-card').classList.toggle('hidden', showLogin);
@@ -180,15 +180,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const canUpdateStatus = currentUser.role === 'Admin' || currentUser.role === 'SupportAgent';
         const commentsHtml = (ticket.comments || []).map(c => `<div class="comment"><p><strong>${users.find(u => u.email === c.userEmail)?.name || 'Unknown'}:</strong> ${c.text}</p><span class="comment-timestamp">${new Date(c.timestamp).toLocaleString()}</span></div>`).join('');
 
-        ticketDetailView.innerHTML = `<button id="back-to-dashboard">&larr; Back to Dashboard</button><div class="ticket-detail-header"><h2>${ticket.subject}</h2><p>${ticket.description}</p><div class="ticket-actions"><span class="status ${ticket.status.replace(' ', '-')}">${ticket.status}</span>${canUpdateStatus ? `<select id="status-updater" data-id="${ticket.id}"><option value="Open" ${ticket.status === 'Open' ? 'selected' : ''}>Open</option><option value="In Progress" ${ticket.status === 'In Progress' ? 'selected' : ''}>In Progress</option><option value="Resolved" ${ticket.status === 'Resolved' ? 'selected' : ''}>Resolved</option></select>` : ''}<div class="vote-buttons"><button data-id="${ticket.id}" data-vote="up">👍 Upvote</button><span>${ticket.votes || 0}</span><button data-id="${ticket.id}" data-vote="down">👎 Downvote</button></div></div></div><div class="comments-section"><h3>Comments</h3><div id="comments-list">${commentsHtml}</div><form id="comment-form"><textarea id="comment-text" rows="3" placeholder="Add a comment..."></textarea><button type="submit">Post Comment</button></form></div>`;
-        
+        ticketDetailView.innerHTML = `<button id="back-to-dashboard">&larr; Back to Dashboard</button><div class="ticket-detail-header"><h2>${ticket.subject}</h2><p>${ticket.description}</p><div class="ticket-actions"><span class="status ${ticket.status.replace(' ', '-')}"style="background-color: #2563eb;border: 1px solid #000;    padding-top: 5px; padding-right: 20px; padding-bottom: 5px; padding-left: 20px;;border-radius: 4px;">${ticket.status}</span>${canUpdateStatus ? `<select id="status-updater" data-id="${ticket.id}"><option value="Open" ${ticket.status === 'Open' ? 'selected' : ''}>Open</option><option value="In Progress" ${ticket.status === 'In Progress' ? 'selected' : ''}>In Progress</option><option value="Resolved" ${ticket.status === 'Resolved' ? 'selected' : ''}>Resolved</option></select>` : ''}<div class="vote-buttons"><button data-id="${ticket.id}" data-vote="up">👍</button><span>${ticket.votes || 0}</span><button data-id="${ticket.id}" data-vote="down">👎</button></div></div></div><div class="comments-section"><h3>Comments</h3><div id="comments-list">${commentsHtml}</div><form id="comment-form"><textarea id="comment-text" rows="3" placeholder="Add a comment..."></textarea><button type="submit">Post Comment</button></form></div>`;
+
         document.getElementById('back-to-dashboard').addEventListener('click', () => navigateTo('dashboard'));
         document.getElementById('comment-form').addEventListener('submit', handleAddComment);
         if (canUpdateStatus) { document.getElementById('status-updater').addEventListener('change', handleStatusUpdate); }
         ticketDetailView.querySelector('[data-vote="up"]').addEventListener('click', handleVote);
         ticketDetailView.querySelector('[data-vote="down"]').addEventListener('click', handleVote);
     }
-    
+
     function handleAddComment(e) { e.preventDefault(); const text = document.getElementById('comment-text').value; if (!text) return; const ticket = tickets.find(t => t.id === currentTicketId); if (!ticket.comments) ticket.comments = []; ticket.comments.push({ userEmail: currentUser.email, text, timestamp: Date.now() }); saveDataToLocalStorage(); renderTicketDetail(); }
     function handleStatusUpdate(e) { const ticket = tickets.find(t => t.id === currentTicketId); ticket.status = e.target.value; saveDataToLocalStorage(); renderTicketDetail(); }
     function handleVote(e) { const ticket = tickets.find(t => t.id === currentTicketId); const voteType = e.target.dataset.vote; if (!ticket.votes) ticket.votes = 0; if (voteType === 'up') ticket.votes++; else ticket.votes--; saveDataToLocalStorage(); renderTicketDetail(); }
