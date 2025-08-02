@@ -1,0 +1,354 @@
+/* General Body Styles */
+body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Auth & Forms */
+#auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-card {
+    background-color: #1e293b;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-card h2 {
+    text-align: center;
+    margin: 0 0 25px 0;
+    color: #ffffff;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #334155;
+    border: 1px solid #475569;
+    border-radius: 4px;
+    color: #e2e8f0;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+.switch-form {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.switch-form a {
+    color: #3b82f6;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Main App Layout */
+#app-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #334155;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.header-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-button {
+    width: auto;
+    padding: 8px 15px;
+    background-color: #334155;
+}
+
+.nav-button.active {
+    background-color: #2563eb;
+}
+
+#logout-button {
+    width: auto;
+    padding: 8px 15px;
+    background-color: #be123c;
+}
+
+#logout-button:hover {
+    background-color: #9f1239;
+}
+
+/* Toolbar & Filters */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+}
+
+.filters input,
+.filters select {
+    width: auto;
+}
+
+#show-ticket-modal-button {
+    width: auto;
+    padding: 10px 18px;
+    font-weight: bold;
+}
+
+/* Ticket List */
+.ticket-card {
+    background-color: #1e293b;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid #475569;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ticket-card:hover {
+    background-color: #334155;
+}
+
+.ticket-card h3 {
+    margin: 0 0 10px 0;
+    color: #f1f5f9;
+}
+
+.ticket-card .status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #e2e8f0;
+    margin-bottom: 10px;
+}
+
+.ticket-card .status.Open {
+    background-color: #2563eb;
+}
+
+.ticket-card .status.In-Progress {
+    background-color: #f59e0b;
+}
+
+.ticket-card .status.Resolved {
+    background-color: #16a34a;
+}
+
+.ticket-card .meta {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* Ticket Detail View */
+#ticket-detail-view {
+    background-color: #1e293b;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.ticket-detail-header {
+    border-bottom: 1px solid #334155;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.ticket-detail-header h2 {
+    margin: 0 0 10px 0;
+}
+
+.ticket-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.vote-buttons button {
+    background: none;
+    border: 1px solid #475569;
+    padding: 5px 10px;
+    width: auto;
+    font-size: 14px;
+}
+
+.comments-section h3 {
+    margin-top: 30px;
+}
+
+.comment {
+    background-color: #334155;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #f1f5f9;
+}
+
+.comment-timestamp {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-left: 10px;
+}
+
+#comment-form textarea {
+    margin-top: 10px;
+}
+
+#comment-form button {
+    margin-top: 10px;
+    width: auto;
+    padding: 10px 20px;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #1e293b;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    width: auto;
+    padding: 10px 20px;
+}
+
+#cancel-ticket-button {
+    background-color: #475569;
+}
+
+#cancel-ticket-button:hover {
+    background-color: #5a6b82;
+}
+
+/* Admin Panel */
+.admin-section {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.admin-section h2 {
+    margin-top: 0;
+}
+
+#category-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #334155;
+    margin-bottom: 8px;
+}
+
+.list-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* NEW */
+.list-item-controls select {
+    width: 150px;
+}
+
+/* NEW */
+.list-item button {
+    width: auto;
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #be123c;
+}

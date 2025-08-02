@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickDesk</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Authentication Container -->
+    <div id="auth-container">
+        <!-- Login and Register Cards will be here -->
+    </div>
+
+    <!-- Main Application Container -->
+    <div id="app-container" class="hidden">
+        <header>
+            <h1 id="welcome-message"></h1>
+            <div class="header-nav">
+                <button id="dashboard-button" class="nav-button active">Dashboard</button>
+                <button id="admin-panel-button" class="nav-button hidden">Admin Panel</button>
+                <button id="logout-button">Logout</button>
+            </div>
+        </header>
+
+        <!-- Dashboard View -->
+        <div id="dashboard-view">
+            <div class="toolbar">
+                <div class="filters">
+                    <input type="text" id="search-input" placeholder="Search by subject...">
+                    <select id="status-filter">
+                        <option value="all">All Statuses</option>
+                        <option value="Open">Open</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Resolved">Resolved</option>
+                    </select>
+                </div>
+                <button id="show-ticket-modal-button">+ Ask New Question</button>
+            </div>
+            <div id="tickets-list"></div>
+        </div>
+
+        <!-- Ticket Detail View -->
+        <div id="ticket-detail-view" class="hidden">
+            <!-- Content will be injected by JS -->
+        </div>
+
+        <!-- Admin Panel View -->
+        <div id="admin-view" class="hidden">
+            <div class="admin-section">
+                <h2>User Management</h2>
+                <div id="user-management-list"></div>
+            </div>
+            <div class="admin-section">
+                <h2>Category Management</h2>
+                <form id="category-form">
+                    <input type="text" id="category-name-input" placeholder="New category name" required>
+                    <button type="submit">Add Category</button>
+                </form>
+                <div id="category-management-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Creating a New Ticket -->
+    <div id="ticket-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <form id="ticket-form">
+                <h2>Create a New Ticket</h2>
+                <div class="form-group">
+                    <label for="ticket-subject">Subject</label>
+                    <input type="text" id="ticket-subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="ticket-category">Category</label>
+                    <select id="ticket-category" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="ticket-description">Description</label>
+                    <textarea id="ticket-description" rows="4" required></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="cancel-ticket-button">Cancel</button>
+                    <button type="submit">Create Ticket</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>
