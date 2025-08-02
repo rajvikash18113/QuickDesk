@@ -109,6 +109,7 @@ header h1 {
 .header-nav {
     display: flex;
     gap: 10px;
+    align-items: center; /* Aligns items vertically */
 }
 
 .nav-button {
@@ -130,6 +131,75 @@ header h1 {
 #logout-button:hover {
     background-color: #9f1239;
 }
+
+
+/* --- NEW: Notification Styles --- */
+.notification-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background-color: #ef4444; /* Red color for the badge */
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #0f172a;
+}
+
+.notification-panel {
+    position: absolute;
+    top: 140%;
+    right: 0;
+    width: 350px;
+    background-color: #1e293b;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    padding: 15px;
+    border-bottom: 1px solid #334155;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item.unread {
+    background-color: #334155;
+}
+
+.notification-item p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.notification-item .timestamp {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.no-notifications {
+    padding: 20px;
+    text-align: center;
+    color: #94a3b8;
+}
+/* --- End Notification Styles --- */
+
 
 /* Toolbar & Filters */
 .toolbar {
@@ -340,12 +410,10 @@ header h1 {
     gap: 10px;
 }
 
-/* NEW */
 .list-item-controls select {
     width: 150px;
 }
 
-/* NEW */
 .list-item button {
     width: auto;
     padding: 5px 10px;
