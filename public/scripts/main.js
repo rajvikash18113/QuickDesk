@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const userNotifications = notifications
             .filter(n => n.recipientEmail === currentUser.email)
             .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-        
+
         if (userNotifications.length === 0) {
             notificationPanel.innerHTML = '<div class="no-notifications">No notifications yet.</div>';
             return;
@@ -122,12 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="timestamp">${new Date(n.timestamp).toLocaleString()}</div>
             </div>
         `).join('');
-        
+
         document.querySelectorAll('.notification-item').forEach(item => {
             item.addEventListener('click', handleNotificationClick);
         });
     }
-    
+
     function handleNotificationClick(e) {
         const target = e.currentTarget;
         const ticketId = parseInt(target.dataset.ticketId);
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (notification) {
             notification.isRead = true;
         }
-        
+
         saveDataToLocalStorage();
         notificationPanel.classList.add('hidden');
         navigateTo('ticket-detail', ticketId);
@@ -196,8 +196,8 @@ document.addEventListener('DOMContentLoaded', () => {
         dashboardButton.classList.remove('active');
         adminPanelButton.classList.remove('active');
 
-        if (currentView === 'dashboard') { dashboardView.classList.remove('hidden'); dashboardButton.classList.add('active'); renderDashboard(); } 
-        else if (currentView === 'ticket-detail') { ticketDetailView.classList.remove('hidden'); renderTicketDetail(); } 
+        if (currentView === 'dashboard') { dashboardView.classList.remove('hidden'); dashboardButton.classList.add('active'); renderDashboard(); }
+        else if (currentView === 'ticket-detail') { ticketDetailView.classList.remove('hidden'); renderTicketDetail(); }
         else if (currentView === 'admin') { adminView.classList.remove('hidden'); adminPanelButton.classList.add('active'); renderAdminPanel(); }
     }
     // --- DASHBOARD ---
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const subject = document.getElementById('ticket-subject').value;
         const newTicket = { id: Date.now(), userEmail: currentUser.email, subject: subject, description: document.getElementById('ticket-description').value, categoryId: parseInt(document.getElementById('ticket-category').value), status: 'Open', votes: 0, comments: [] };
         tickets.push(newTicket);
-        
+
         // NOTIFICATION TRIGGER: Notify all agents and admins
         users.forEach(user => {
             if (user.role === 'SupportAgent' || user.role === 'Admin') {
