@@ -419,3 +419,85 @@ header h1 {
     font-size: 12px;
     background-color: #be123c;
 }
+
+/* --- STATUS BADGES --- */
+
+/* Base style for all badges */
+.status-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 15px; /* Pill shape */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+/* Modifier class for OPEN status */
+.status-open {
+    background-color: #2563eb; /* Blue */
+}
+
+/* Modifier class for IN PROGRESS status */
+.status-in-progress {
+    background-color: #f59e0b; /* Amber/Yellow */
+    color: #1f2937; /* Dark text for readability */
+}
+
+/* Modifier class for RESOLVED status */
+.status-resolved {
+    background-color: #16a34a; /* Green */
+}
+
+
+/* --- CUSTOM SELECT DROPDOWN --- */
+
+/* Wrapper to position the custom arrow */
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; /* Aligns better with the badge */
+  margin-left: 10px;
+}
+
+/* The select element itself */
+.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 8px 35px 8px 12px;
+  font-size: 14px;
+  color: #333;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* The custom arrow */
+.custom-select-wrapper::after {
+  content: '▼';
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  font-size: 10px;
+  color: #555;
+  pointer-events: none;
+}
+
+
+#comment-text {
+  /* Set a specific width and height */
+  width: 99.5%;
+  height: 100px;
+  border-radius: 6px;
+
+  /* Or make it fill its container */
+  /* width: 100%; */
+
+  /* Optional: control resizing behavior */
+  resize: vertical; /* Allows user to resize only vertically */
+  /* resize: none; /   / Prevents user from resizing at all */
+}
