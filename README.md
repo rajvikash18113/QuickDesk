@@ -86,7 +86,7 @@ You can log in with these default accounts to test the different roles:
 
 | Role | Email | Password |
 | :--- | :--- | :--- |
-| **Admin** | `admin@app.com` | `admin` |
+| **Admin** | `admin@gmail.com` | `admin` |
 | **Agent 1** | `agent1@gmail.com` | `agent` |
 | **Agent 2** | `agent2@gmail.com` | `agent` |
 | **User 1** | `user1@gmail.com` | `user` |
