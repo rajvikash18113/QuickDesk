@@ -1,7 +1,6 @@
 # QuickDesk Help Desk System
 
-QuickDesk is a simple, easy-to-use help desk solution where users can raise support tickets, and support staff can manage and resolve them efficiently. This project was built for the Odoo x CGC Mohali Hackathon '25.
-
+QuickDesk is a simple, easy-to-use help desk solution where users can raise support tickets, and support staff can manage and resolve them efficiently. 
 **Live Demo:** [**https://quickdesk-15ay.onrender.com/**](https://quickdesk-15ay.onrender.com/) 🚀
 
 ---
@@ -10,7 +9,7 @@ QuickDesk is a simple, easy-to-use help desk solution where users can raise supp
 
 [![QuickDesk Video Demo](https://img.youtube.com/vi/o_837O-327c/0.jpg)](http://www.youtube.com/watch?v=PgceWdpxKU8)
 
-*(Click the image above to watch a full video demonstration of the project: [QuickDesk - (ODOO) hackathon Project](http://www.youtube.com/watch?v=PgceWdpxKU8))*
+*(Click the image above to watch a full video demonstration of the project: [QuickDesk](http://www.youtube.com/watch?v=PgceWdpxKU8))*
 
 ---
 
